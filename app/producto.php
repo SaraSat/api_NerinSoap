@@ -11,6 +11,7 @@ class producto extends Model
         'img',
         'description',
         'price',
-        'category'
+        'category',
+        'destacable'
     ];
 }
