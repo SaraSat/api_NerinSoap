@@ -26,6 +26,15 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->filled('img')){
+            $file = $request->file('img');
+            $fileName = $file->getClientOriginalName();
+            $destinationPath = 'C:/MisProgramas/angular/NerinSoap/src/assets/images' . $fileName;
+            $image->move($destinationPath, $fileName);
+     
+            $attributes['img'] = $fileName;           
+        }
+       
         $producto = producto::create($request->all());
         return $producto;
     }
